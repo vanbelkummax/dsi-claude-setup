@@ -11,7 +11,7 @@ echo "DSI Claude Code Setup Uninstaller"
 echo "================================"
 echo ""
 
-# Files to remove
+# Core files to remove
 TEMPLATES=(
     "DSI_CLAUDE.md"
 )
@@ -24,6 +24,10 @@ SKILLS=(
 
 COMMANDS=(
     "dsi-init.md"
+)
+
+# Optional Polymath commands (remove if present)
+POLYMATH_COMMANDS=(
     "polymath-status.md"
     "ingest.md"
     "search.md"
@@ -50,6 +54,14 @@ for f in "${COMMANDS[@]}"; do
     if [ -f "$CLAUDE_DIR/commands/$f" ]; then
         rm "$CLAUDE_DIR/commands/$f"
         echo "  - $f"
+    fi
+done
+
+echo "Removing optional Polymath commands (if installed)..."
+for f in "${POLYMATH_COMMANDS[@]}"; do
+    if [ -f "$CLAUDE_DIR/commands/$f" ]; then
+        rm "$CLAUDE_DIR/commands/$f"
+        echo "  - $f (polymath)"
     fi
 done
 

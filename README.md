@@ -5,7 +5,6 @@ A portable setup for AI-First development using Claude Code, following Vanderbil
 ## Quick Install
 
 ```bash
-# Clone and install
 git clone https://github.com/vanbelkummax/dsi-claude-setup.git
 cd dsi-claude-setup
 ./install.sh
@@ -27,9 +26,6 @@ cd dsi-claude-setup
 | Command | Purpose |
 |---------|---------|
 | `/dsi-init` | Initialize current directory as DSI project |
-| `/polymath-status` | Check Polymath knowledge base health |
-| `/ingest <path>` | Ingest papers into knowledge base |
-| `/search <query>` | Search the knowledge base |
 
 ## Usage
 
@@ -52,9 +48,8 @@ your-project/
 
 ### During Development
 - Use `#` prefix to capture notes to memory
-- Run `/polymath-status` to check system health
-- Use `/search "query"` to search knowledge base
-- Use `/ingest path/to/paper.pdf` to add papers
+- Create project-specific skills in `.claude/skills/`
+- Create project-specific commands in `.claude/commands/`
 
 ## File Locations After Install
 
@@ -67,11 +62,22 @@ your-project/
 │   ├── research-sprint.md
 │   └── skill-template.md
 └── commands/
-    ├── dsi-init.md
-    ├── polymath-status.md
-    ├── ingest.md
-    └── search.md
+    └── dsi-init.md
 ```
+
+## Optional Extras
+
+### Polymath Knowledge Base Commands
+If you have the Polymath knowledge base set up, install additional commands:
+
+```bash
+cp extras/polymath-commands/*.md ~/.claude/commands/
+```
+
+This adds:
+- `/polymath-status` - Check knowledge base health
+- `/ingest <path>` - Ingest papers into knowledge base
+- `/search <query>` - Search the knowledge base
 
 ## DSI AI-First Principles
 
